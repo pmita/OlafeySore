@@ -1,0 +1,19 @@
+$main-color: #0f3e36;
+$highlight-color: #cc9964;
+$secondary-color: #ffffff;
+
+$header1: 4rem;
+$header2: 3.2rem;
+$header3: 2.6rem;
+$header4: 2rem;
+$text: 2.2rem;
+
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@import "global";
+@import "intro";

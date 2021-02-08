@@ -1,0 +1,114 @@
+.intro {
+  background: $main-color;
+  width: 100%;
+  nav {
+    min-height: 10vh;
+    width: 100%;
+    padding: 0 100px;
+    background: $secondary-color;
+    @include flex(row, space-between, center);
+    h2 {
+      font-size: $header2;
+      flex: 1 1 40rem;
+    }
+    ul {
+      flex: 1 1 40rem;
+      @include flex(row, space-evenly, center);
+      li a {
+        color: $main-color;
+      }
+    }
+  }
+}
+
+.banner {
+  min-height: 90vh;
+  width: 100%;
+  padding: 0 100px;
+  position: relative;
+  @include flex(row, flex-start, center);
+  overflow: hidden;
+  img {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    width: 600px;
+    height: auto;
+    z-index: 1;
+
+    animation: plant-entrance 1.5s ease-in-out 0.5s forwards,
+      wiggle 2.5s infinite ease alternate-reverse 2s;
+    transform-origin: top;
+  }
+}
+
+.banner-content {
+  z-index: 100;
+  @include flex(column, space-between, flex-start);
+  h1 {
+    font-size: 8rem;
+    color: $secondary-color;
+  }
+  h4 {
+    font-size: $header2;
+    color: $secondary-color;
+    padding: 5rem 0;
+  }
+  .action-button {
+    @include flex(row, space-between, center);
+    flex-wrap: wrap;
+    width: 100%;
+    .action {
+      flex: 1 1 20rem;
+      background: $highlight-color;
+      color: $main-color;
+      border: 2px solid $highlight-color;
+      padding: 10px 25px;
+    }
+    .sec-action {
+      flex: 1 1 20rem;
+      background: $main-color;
+      color: $secondary-color;
+      border: 2px solid $secondary-color;
+      padding: 10px 25px;
+    }
+  }
+}
+
+@keyframes plant-entrance {
+  from {
+    transform: rotateX(-90deg);
+  }
+  to {
+    transform: rotateX(0deg);
+  }
+}
+
+@keyframes wiggle {
+  from {
+    transform: rotateX(-20deg);
+  }
+  to {
+    transform: rotateX(0deg);
+  }
+}
+
+@media screen and (max-width: 764px) {
+  html {
+    font-size: 52%;
+  }
+
+  .banner img {
+    width: 70%;
+  }
+
+  .action-button {
+    @include flex(column, space-between, flex-start);
+    .action {
+      margin-bottom: 1rem;
+    }
+    .sec-action {
+      margin-top: 1rem;
+    }
+  }
+}
