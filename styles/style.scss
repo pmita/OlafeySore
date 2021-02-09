@@ -15,5 +15,12 @@ $text: 2.2rem;
   align-items: $align;
 }
 
+@mixin position($position, $size, $repeat) {
+  background-position: $position;
+  background-size: $size;
+  background-repeat: $repeat;
+}
+
 @import "global";
 @import "intro";
+@import "products";

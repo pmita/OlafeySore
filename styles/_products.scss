@@ -1,0 +1,56 @@
+.products {
+  min-height: 100vh;
+  background: $secondary-color;
+  @include flex(column, space-between, center);
+  padding: 100px;
+  h1 {
+    color: $main-color;
+  }
+  .product-cards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-auto-rows: minmax(500px, 1fr);
+    gap: 1rem;
+    .card {
+      padding: 25px 0 0 0;
+      display: flex;
+      @include flex(column, flex-start, flex-start);
+      h2 {
+        padding: 10px 10px 10px 0;
+        color: $secondary-color;
+      }
+    }
+  }
+  .card-1 {
+    background: url("../img/product-img1.jpg");
+    @include position(center, cover, no-repeat);
+    h2 {
+      background: $main-color;
+    }
+  }
+  .card-2 {
+    background: url("../img/product-img2.jpg");
+    @include position(center, cover, no-repeat);
+    h2 {
+      background: #47731d;
+    }
+  }
+  .card-3 {
+    background: url("../img/product-img3.jpg");
+    @include position(center, cover, no-repeat);
+    h2 {
+      background: $main-color;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .products {
+    padding: 25px;
+    h1 {
+      padding: 50px 0;
+      margin-bottom: 10px;
+    }
+  }
+}
