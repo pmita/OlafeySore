@@ -1,3 +1,4 @@
+/*Styling that applies to Landing Page*/
 .intro {
   background: $main-color;
   width: 100%;
@@ -35,7 +36,6 @@
     width: 600px;
     height: auto;
     z-index: 1;
-
     animation: plant-entrance 1.5s ease-in-out 0.5s forwards,
       wiggle 2.5s infinite ease alternate-reverse 2s;
     transform-origin: top;
@@ -58,20 +58,6 @@
     @include flex(row, space-between, center);
     flex-wrap: wrap;
     width: 100%;
-    .action {
-      flex: 1 1 20rem;
-      background: $highlight-color;
-      color: $main-color;
-      border: 2px solid $highlight-color;
-      padding: 10px 25px;
-    }
-    .sec-action {
-      flex: 1 1 20rem;
-      background: $main-color;
-      color: $secondary-color;
-      border: 2px solid $secondary-color;
-      padding: 10px 25px;
-    }
   }
 }
 
@@ -93,22 +79,38 @@
   }
 }
 
-@media screen and (max-width: 764px) {
-  html {
+.action {
+  margin-right: 2rem;
+  flex: 1 1 25rem;
+  background: $highlight-color;
+  color: $main-color;
+  border: 2px solid $highlight-color;
+  padding: 10px 25px;
+}
+
+.sec-action {
+  margin-left: 2rem;
+  flex: 1 1 25rem;
+  background: $main-color;
+  color: $secondary-color;
+  border: 2px solid $secondary-color;
+  padding: 10px 25px;
+}
+
+@media screen and (max-width: 755px) {
+  html{
     font-size: 52%;
   }
 
-  .banner img {
-    width: 70%;
+  .banner{
+    padding: 25px;
   }
 
-  .action-button {
-    @include flex(column, space-between, flex-start);
-    .action {
-      margin-bottom: 1rem;
-    }
-    .sec-action {
-      margin-top: 1rem;
-    }
+  .action{
+    margin: 1rem;
+  }
+  .sec-action{
+    margin: 1rem;
   }
 }
+

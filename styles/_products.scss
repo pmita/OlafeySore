@@ -5,15 +5,18 @@
   padding: 100px;
   h1 {
     color: $main-color;
+    padding: 50px 0;
+    flex: 1 1 200px;
   }
   .product-cards {
+    flex: 2 1 500px;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
     grid-auto-rows: minmax(500px, 1fr);
-    gap: 1rem;
+    gap: 2rem;
     .card {
-      padding: 25px 0 0 0;
+      padding: 20px 0 0 0;
       display: flex;
       @include flex(column, flex-start, flex-start);
       h2 {
@@ -22,6 +25,7 @@
       }
     }
   }
+
   .card-1 {
     background: url("../img/product-img1.jpg");
     @include position(center, cover, no-repeat);
@@ -29,6 +33,7 @@
       background: $main-color;
     }
   }
+
   .card-2 {
     background: url("../img/product-img2.jpg");
     @include position(center, cover, no-repeat);
@@ -36,6 +41,7 @@
       background: #47731d;
     }
   }
+
   .card-3 {
     background: url("../img/product-img3.jpg");
     @include position(center, cover, no-repeat);
@@ -51,6 +57,9 @@
     h1 {
       padding: 50px 0;
       margin-bottom: 10px;
+    }
+    .product-cards{
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     }
   }
 }
