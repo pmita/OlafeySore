@@ -1,3 +1,87 @@
+@-webkit-keyframes opening {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes opening {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes plant-entrance {
+  from {
+    -webkit-transform: rotateX(-90deg);
+            transform: rotateX(-90deg);
+  }
+  to {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+}
+
+@keyframes plant-entrance {
+  from {
+    -webkit-transform: rotateX(-90deg);
+            transform: rotateX(-90deg);
+  }
+  to {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+}
+
+@-webkit-keyframes wiggle {
+  from {
+    -webkit-transform: rotateX(-20deg);
+            transform: rotateX(-20deg);
+  }
+  to {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+}
+
+@keyframes wiggle {
+  from {
+    -webkit-transform: rotateX(-20deg);
+            transform: rotateX(-20deg);
+  }
+  to {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+}
+
+@-webkit-keyframes plant-shake {
+  from {
+    -webkit-transform: rotateZ(5deg);
+            transform: rotateZ(5deg);
+  }
+  to {
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+  }
+}
+
+@keyframes plant-shake {
+  from {
+    -webkit-transform: rotateZ(5deg);
+            transform: rotateZ(5deg);
+  }
+  to {
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +95,8 @@ html {
 
 body {
   background: #0f3e36;
+  -webkit-animation: opening 1s ease-in-out forwards;
+          animation: opening 1s ease-in-out forwards;
 }
 
 h1 {
@@ -45,10 +131,124 @@ a {
   text-decoration: none;
 }
 
+.about {
+  min-height: 100vh;
+  width: 100%;
+  padding: 100px;
+  background: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.about img {
+  pointer-events: none;
+  position: absolute;
+  animation: plant-entrance 1.5s ease-in-out 0.5s forwards, plant-shake 2.5s infinite ease alternate-reverse 2s;
+}
+
+.about img:nth-child(2) {
+  right: 0;
+  bottom: -10%;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+}
+
+.about img:nth-child(1) {
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  top: -10%;
+  left: 0;
+}
+
+.about .about-img {
+  background: url("../img/product-img1.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 50vh;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 40rem;
+          flex: 1 1 40rem;
+}
+
+.about .about-details {
+  background: #DAF3DE;
+  -webkit-box-flex: 2;
+      -ms-flex: 2 2 60rem;
+          flex: 2 2 60rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 0 5rem;
+}
+
+.about .about-details button {
+  background: #cc9964;
+  border: 2px solid #cc9964;
+  color: #ffffff;
+  padding: 10px 20px;
+}
+
+@media screen and (max-width: 1218px) {
+  .about-details h4 {
+    padding: 5rem 0;
+  }
+  .about-details h2 {
+    padding: 5rem 0;
+  }
+  .about-details p {
+    padding: 5rem 0;
+  }
+  .about-details button {
+    margin: 5rem 0;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .about {
+    padding: 25px;
+  }
+  .about img {
+    width: 65%;
+  }
+  .about img:nth-child(2) {
+    right: -5%;
+    bottom: 0%;
+  }
+}
+
 /*Styling that applies to Landing Page*/
 .intro {
   background: #0f3e36;
   width: 100%;
+  /*Navigation Styling*/
 }
 
 .intro nav {
@@ -101,6 +301,7 @@ a {
   color: #0f3e36;
 }
 
+/*Banner Styling*/
 .banner {
   min-height: 90vh;
   width: 100%;
@@ -162,7 +363,7 @@ a {
   padding: 5rem 0;
 }
 
-.banner-content .action-button {
+.banner-content .action-buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -181,51 +382,8 @@ a {
   width: 100%;
 }
 
-@-webkit-keyframes plant-entrance {
-  from {
-    -webkit-transform: rotateX(-90deg);
-            transform: rotateX(-90deg);
-  }
-  to {
-    -webkit-transform: rotateX(0deg);
-            transform: rotateX(0deg);
-  }
-}
-
-@keyframes plant-entrance {
-  from {
-    -webkit-transform: rotateX(-90deg);
-            transform: rotateX(-90deg);
-  }
-  to {
-    -webkit-transform: rotateX(0deg);
-            transform: rotateX(0deg);
-  }
-}
-
-@-webkit-keyframes wiggle {
-  from {
-    -webkit-transform: rotateX(-20deg);
-            transform: rotateX(-20deg);
-  }
-  to {
-    -webkit-transform: rotateX(0deg);
-            transform: rotateX(0deg);
-  }
-}
-
-@keyframes wiggle {
-  from {
-    -webkit-transform: rotateX(-20deg);
-            transform: rotateX(-20deg);
-  }
-  to {
-    -webkit-transform: rotateX(0deg);
-            transform: rotateX(0deg);
-  }
-}
-
-.action {
+/*Button styling*/
+.main-button {
   margin-right: 2rem;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 25rem;
@@ -236,7 +394,7 @@ a {
   padding: 10px 25px;
 }
 
-.sec-action {
+.secondary-button {
   margin-left: 2rem;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 25rem;
@@ -254,10 +412,10 @@ a {
   .banner {
     padding: 25px;
   }
-  .action {
+  .main-button {
     margin: 1rem;
   }
-  .sec-action {
+  .secondary-button {
     margin: 1rem;
   }
 }

@@ -21,7 +21,44 @@ $text: 2.2rem;
   background-repeat: $repeat;
 }
 
+@keyframes opening{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+@keyframes plant-entrance {
+  from {
+    transform: rotateX(-90deg);
+  }
+  to {
+    transform: rotateX(0deg);
+  }
+}
+
+@keyframes wiggle {
+  from {
+    transform: rotateX(-20deg);
+  }
+  to {
+    transform: rotateX(0deg);
+  }
+}
+
+@keyframes plant-shake {
+  from {
+    transform: rotateZ(5deg);
+  }
+  to {
+    transform: rotateZ(0deg);
+  }
+}
+
 @import "global";
+@import "about";
 @import "intro";
 @import "products";
 @import "reviews";

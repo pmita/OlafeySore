@@ -2,6 +2,7 @@
 .intro {
   background: $main-color;
   width: 100%;
+  /*Navigation Styling*/
   nav {
     min-height: 10vh;
     width: 100%;
@@ -22,6 +23,7 @@
   }
 }
 
+/*Banner Styling*/
 .banner {
   min-height: 90vh;
   width: 100%;
@@ -54,32 +56,16 @@
     color: $secondary-color;
     padding: 5rem 0;
   }
-  .action-button {
+  .action-buttons {
     @include flex(row, space-between, center);
     flex-wrap: wrap;
     width: 100%;
   }
 }
 
-@keyframes plant-entrance {
-  from {
-    transform: rotateX(-90deg);
-  }
-  to {
-    transform: rotateX(0deg);
-  }
-}
 
-@keyframes wiggle {
-  from {
-    transform: rotateX(-20deg);
-  }
-  to {
-    transform: rotateX(0deg);
-  }
-}
-
-.action {
+/*Button styling*/
+.main-button {
   margin-right: 2rem;
   flex: 1 1 25rem;
   background: $highlight-color;
@@ -88,7 +74,7 @@
   padding: 10px 25px;
 }
 
-.sec-action {
+.secondary-button {
   margin-left: 2rem;
   flex: 1 1 25rem;
   background: $main-color;
@@ -106,10 +92,11 @@
     padding: 25px;
   }
 
-  .action{
+  .main-button{
     margin: 1rem;
   }
-  .sec-action{
+
+  .secondary-button{
     margin: 1rem;
   }
 }

@@ -10,6 +10,7 @@ html {
 
 body {
   background: $main-color;
+  animation: opening 1s ease-in-out forwards;
 }
 
 h1 {
