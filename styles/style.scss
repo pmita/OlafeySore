@@ -57,8 +57,15 @@ $text: 2.2rem;
   }
 }
 
+@media screen and (max-width: 800px){
+  html{
+    font-size: 52%;
+  }
+}
+
 @import "global";
 @import "about";
 @import "intro";
 @import "products";
 @import "reviews";
+@import "footer";
