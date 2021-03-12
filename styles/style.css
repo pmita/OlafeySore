@@ -254,10 +254,10 @@ a {
 .intro {
   background: #0f3e36;
   width: 100%;
-  /*Navigation Styling*/
 }
 
-.intro nav {
+/*Navigation Styling*/
+nav {
   min-height: 10vh;
   width: 100%;
   padding: 0 100px;
@@ -275,16 +275,17 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
 }
 
-.intro nav h2 {
+nav #logo {
   font-size: 3.2rem;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 40rem;
           flex: 1 1 40rem;
 }
 
-.intro nav ul {
+.nav-links {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 40rem;
           flex: 1 1 40rem;
@@ -303,8 +304,24 @@ a {
           align-items: center;
 }
 
-.intro nav ul li a {
+.nav-links li a {
   color: #0f3e36;
+}
+
+.nav-links li a:hover {
+  text-decoration: underline;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+}
+
+.burger div {
+  width: 25px;
+  height: 2px;
+  margin: 5px;
+  background-color: #0f3e36;
 }
 
 /*Banner Styling*/
@@ -415,6 +432,41 @@ a {
   html {
     font-size: 52%;
   }
+  /*Making the navbar responsive*/
+  .burger {
+    display: block;
+  }
+  .nav-links {
+    position: absolute;
+    width: 100%;
+    height: 90vh;
+    top: 10vh;
+    right: 0;
+    background: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    z-index: 999;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+  }
+  .nav-active {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+  /*End of nav styling*/
   .banner {
     padding: 25px;
   }
@@ -709,5 +761,9 @@ footer .footer-details {
   footer {
     padding: 25px;
   }
+}
+
+@media screen and (max-width: 100px) {
+  /*Example for media queries*/
 }
 /*# sourceMappingURL=style.css.map */

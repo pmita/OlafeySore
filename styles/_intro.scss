@@ -2,6 +2,8 @@
 .intro {
   background: $main-color;
   width: 100%;
+}
+
   /*Navigation Styling*/
   nav {
     min-height: 10vh;
@@ -9,18 +11,35 @@
     padding: 0 100px;
     background: $secondary-color;
     @include flex(row, space-between, center);
-    h2 {
+    position: relative;
+    #logo{
       font-size: $header2;
       flex: 1 1 40rem;
     }
-    ul {
-      flex: 1 1 40rem;
-      @include flex(row, space-evenly, center);
-      li a {
-        color: $main-color;
-      }
+  }
+
+
+.nav-links{
+  flex: 1 1 40rem;
+  @include flex(row, space-evenly, center);
+  li a {
+    color: $main-color;
+    &:hover{
+        text-decoration: underline;
     }
   }
+}
+
+.burger{
+  display: none;
+  cursor: pointer;
+}
+
+.burger div{
+  width: 25px;
+  height: 2px;
+  margin: 5px;
+  background-color: $main-color;
 }
 
 /*Banner Styling*/
@@ -88,6 +107,29 @@
     font-size: 52%;
   }
 
+  /*Making the navbar responsive*/
+  .burger{
+    display: block;
+  }
+
+  .nav-links{
+    position: absolute;
+    width: 100%;
+    height: 90vh;
+    top: 10vh;
+    right:0;
+    background: white;
+    @include flex(column, space-evenly, center);
+    z-index: 999;
+    transform: translateX(100%);
+    transition: all 1s ease-in-out;
+  }
+
+  .nav-active{
+    transform: translateX(0%)
+  }
+  /*End of nav styling*/
+  
   .banner{
     padding: 25px;
   }
@@ -100,4 +142,3 @@
     margin: 1rem;
   }
 }
-
