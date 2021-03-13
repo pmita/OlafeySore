@@ -103,6 +103,7 @@ body {
   background: #0f3e36;
   -webkit-animation: opening 1s ease-in-out forwards;
           animation: opening 1s ease-in-out forwards;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -480,7 +481,10 @@ nav #logo {
 
 .products {
   min-height: 100vh;
+  width: 100%;
+  padding: 25px;
   background: #ffffff;
+  color: black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -488,107 +492,140 @@ nav #logo {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 100px;
 }
 
-.products h1 {
-  color: #0f3e36;
-  padding: 0 0 100px 0;
-}
-
-.products .product-cards {
+.products-grid {
   width: 100%;
+  padding: 0 25px;
+  /*Make a automatic grid. Each cell to be minimum 450px by 400px*/
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(495px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(495px, 1fr));
-  grid-auto-rows: minmax(650px, 1fr);
-  gap: 2rem;
+  -ms-grid-columns: (minmax(450px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  grid-auto-rows: minmax(400px, 500px);
+  gap: 1rem;
 }
 
-.products .product-cards .card {
-  padding: 50px 0 0 0;
+.card-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /*Flip the card when the user hovers over the main container*/
+}
+
+.card-container:hover .product-card {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.card-container .product-card {
+  height: 100%;
+  width: 100%;
+  border: 5px solid #0f3e36;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.card-container .product-card figure {
+  width: 100%;
+  height: 100%;
+  /*stack both front and back*/
+  position: absolute;
+  margin: 0;
+}
+
+.card-container .product-card .card-front h2 {
+  padding: 5px;
+  background: #0f3e36;
+  color: #ffffff;
+}
+
+.card-container .product-card .card-back {
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /*Rotate the back so it hides behind the front*/
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
 }
 
-.products .product-cards .card h2 {
-  padding: 10px 10px 10px 0;
-  color: #ffffff;
-}
-
-.products .card-1 {
+/*Apply diffent backgrounds for each card*/
+.card-1 {
   background: url("../img/product-img1.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.products .card-1 h2 {
-  background: #0f3e36;
-}
-
-.products .card-2 {
+.card-2 {
   background: url("../img/product-img2.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.products .card-2 h2 {
-  background: #47731d;
-}
-
-.products .card-3 {
+.card-3 {
   background: url("../img/product-img3.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.products .card-3 h2 {
+.buy-button {
+  padding: 10px 25px;
+  color: #ffffff;
   background: #0f3e36;
+  border: 2px solid #0f3e36;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
-@media screen and (max-width: 800px) {
+.buy-button:hover {
+  color: #0f3e36;
+  background: #ffffff;
+}
+
+@media screen and (max-width: 500px) {
   .products {
-    padding: 25px;
+    padding: 10px;
   }
-  .products h1 {
-    padding: 50px 0;
-    margin-bottom: 10px;
-  }
-  .products .product-cards {
-    -ms-grid-columns: (minmax(495px, 1fr))[auto-fill];
-        grid-template-columns: repeat(auto-fill, minmax(495px, 1fr));
-    grid-auto-rows: minmax(450px, 1fr);
-    gap: 2rem;
-  }
-}
-
-@media screen and (max-width: 545px) {
-  .products .product-cards {
-    -ms-grid-columns: (minmax(320px, 1fr))[auto-fill];
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    grid-auto-rows: minmax(400px, 1fr);
+  .products-grid {
+    width: 100%;
+    padding: 0 25px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(360px, 1fr))[auto-fill];
+        grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    grid-auto-rows: minmax(350px, 400px);
   }
 }
 
