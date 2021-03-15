@@ -63,9 +63,30 @@ $text: 2.2rem;
   }
 }
 
+/*Button styling*/
+.main-button {
+  margin-right: 2rem;
+  flex: 1 1 25rem;
+  background: $highlight-color;
+  color: $secondary-color;
+  border: 2px solid $highlight-color;
+  padding: 10px 25px;
+}
+
+.secondary-button {
+  margin-left: 2rem;
+  flex: 1 1 25rem;
+  background: $main-color;
+  color: $secondary-color;
+  border: 2px solid $secondary-color;
+  padding: 10px 25px;
+}
+
+
 @import "global";
 @import "about";
 @import "intro";
 @import "products";
 @import "reviews";
 @import "footer";
+@import "modal";
